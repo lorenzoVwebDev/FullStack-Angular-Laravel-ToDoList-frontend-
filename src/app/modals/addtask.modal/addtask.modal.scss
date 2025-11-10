@@ -1,0 +1,74 @@
+@use '../../../style/mixin' as *;
+
+:host {
+  & h1 {
+    text-align: center;
+    & span {
+      color: $neon-orange;
+    }
+  }
+  & h2 {
+    text-align: center;
+  }
+ & .addtask-modal-form {
+  & .addtask-modal-select-ctnr {
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+    & select {
+      width: 55%;
+    }
+  }
+
+  & .addtask-modal-textarea-ctnr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & textarea {
+      border: solid 1px hsl(150 30% 60% / 20%);
+      border-radius: 10px 10px 10px 10px;
+      width: 100%;
+      min-height: 5rem;
+      height: fit-content;
+      padding-left: 1rem;
+      padding-top: 1rem;
+      resize: none;
+      &:focus {
+        outline: none !important;
+        outline-style: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+      }
+    }
+  }
+
+  & .addtask-modal-label-ctnr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & input[type=text] {
+      border: solid 1px hsl(150 30% 60% / 20%);
+      border-radius: 10px 10px 10px 10px;
+      width: 100%;
+      padding-left: 0.8rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      &:focus {
+        outline: none !important;
+        outline-style: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+      }
+    }
+  }
+
+  & .addtask-modal-duedate-ctnr {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    & .mat-mdc-form-field {
+      width: 70%;
+    }
+  }
+ }
+}

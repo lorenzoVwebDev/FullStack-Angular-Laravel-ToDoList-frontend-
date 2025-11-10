@@ -1,0 +1,137 @@
+<global-header/>
+  <div class="home-component-wrapper">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1><span>T</span>o Do List <span>F</span>ull Stack</h1>
+                <p>A fullstack To Do List project that comprises almost every aspect of Angular 20. You're welcome!</p>
+                  <a routerLink="/dashboard/todolist" class="btn-primary">Full Stack To Do List App</a>
+            </div>
+            @defer (on idle) {
+            @if (!signedIn()) {
+            <div class="hero-form">
+                @if (!isSignUpOk()) {
+                  <h3><span>S</span>ign <span>U</span>p</h3>
+                  <form [formGroup]="signUpFormGroup" (submit)="signUp()">
+                  <div class="signup-input-ctnr">
+                      <label for=""><mat-icon>person</mat-icon></label>
+                      <input type="text" name="username" id="username" formControlName="username" placeholder="Insert Username"/>
+                  </div>
+                  <div class="signup-input-ctnr">
+                      <label for="email"><mat-icon>mail</mat-icon></label>
+                      <input type="email" name="email" id="email" formControlName="email" placeholder="Insert Email"/>
+                  </div>
+                  <div class="signup-input-ctnr">
+                      <label for="password"><mat-icon>key</mat-icon></label>
+                      <input type="password" name="password" id="password" formControlName="password" placeholder="Insert Password"/>
+                  </div>
+                  <div class="signup-input-ctnr">
+                      <label for="confirmPassword"><mat-icon>done_outline</mat-icon></label>
+                      <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword" placeholder="Confrim Password"/>
+                  </div>
+                  <div class="signup-input-ctnr">
+                      <label for="avatar"><mat-icon>avatar</mat-icon></label>
+                      <input type="file" name="avatar" id="avatar" formControlName="avatar" placeholder="avatar"/>
+                  </div>
+                  <button type="submit" [submitdisabledDirective]="signUpFormGroup.valid">Sign Up</button>
+                  </form>
+                } @else {
+                  <div class="welcome-ctnr">
+                    <h3>You're Welcome In <span>T</span>o <span>D</span>o <span>L</span>ist <span>F</span>ullstack</h3>
+                  </div>
+                }
+            </div>
+            } @else {
+              <div class="hero-img-ctnr">
+                <img [src]="imgPath" alt=""/>
+              </div>
+            }
+          } @loading {
+            <div>I am Loading!</div>
+          }
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title"><span>T</span>o do list <span>F</span>ull stack <span>F</span>rameworks</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <mat-icon svgIcon="angular">fingerprint</mat-icon>
+                    </div>
+                    <h3>Angular</h3>
+                    <p>Angular is the framework that powers up the entire frontend side of the application. The application covers almost any of the framework's features.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <mat-icon>polymer</mat-icon>
+                    </div>
+                    <h3>Angular Material</h3>
+                    <p>Improved with Angular Material for several frontend components such as sign up/sign in modals, paginators, dropdowns and many others.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                      <mat-icon svgIcon="laravel"></mat-icon>
+                    </div>
+                    <h3>Laravel Api</h3>
+                    <p>Backend built with Laravel framework. Provide static assets and authentication/tasks APIs, ORM models, CORS configuration, exceptions/logs handling over channels and authentication middleware based on JWT.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                      <mat-icon svgIcon="mysql"></mat-icon>
+                    </div>
+                    <h3>Mysql Database</h3>
+                    <p>Mysql database migrated to Laravel and managed with ORM to retrieve user related data (tasks). Relational tables bound by foreign keys.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" #sliderContainer>
+        <div class="slider-ctnr" (window:resize)="onResize()" #sliderContainer>
+            <carousel-component [parentWidth]="elementWidth()" [slides]="sliderArray"/>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About LorWebDev</h2>
+                <p>After the end of my high school studies, I studied at Saint Louise Music College, based in Rome. Over the university years, I had been working in different sectors; however, not each of them was related to music. I undertook many different career paths that have led me to have a very open mind as well as being easily adaptive to almost any kind of situation.</p>
+                <p>Additionally, after long years of experience on stage as a musician, I've developed a strong character that allows me to work in very stressful situations even when things go wrong for reasons far from my control. To delve more into specifics in terms of what my career has been so far, just click on the Read More button below!</p>
+<!--                 <div class="stats">
+                    <div class="stat-item">
+                        <h3>50,000+</h3>
+                        <p>Successful Matches</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1M+</h3>
+                        <p>Active Members</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="about-image">
+                <img src="https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png" alt="Happy couple">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Try "ToDoList FullStack" Out!</h2>
+            <p>Start exploring  the "ToDoList FullStack" app by signing up!</p>
+            <a routerLink="/signup" class="btn-primary">Sign Up</a>
+        </div>
+    </section>
+  </div>
+<global-footer/>

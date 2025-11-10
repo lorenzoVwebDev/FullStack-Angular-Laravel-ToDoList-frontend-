@@ -1,0 +1,73 @@
+@use '../../../style/mixin' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  & .signup-left {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & h1 {
+      & span {
+        color: $neon-orange;
+      }
+    }
+    & form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      & .signup-input-ctnr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 25px;
+        overflow: hidden;
+        background-color: rgba(231, 231, 231, 0.952);
+        width: fit-content;
+        padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+        & input {
+          border: none;
+          background-color: inherit;
+        &:focus {
+          outline: none !important;
+          outline-style: none !important;
+          box-shadow: none !important;
+          border-color: transparent !important;
+        }
+        }
+      }
+      & button {
+        @include btn1;
+      }
+
+      & .disabled {
+        background-color: gray;
+        &:active {
+          background-color: gray;
+          outline: none;
+          color: white
+        }
+      }
+    }
+  }
+
+  & .signup-right {
+    flex: 50%;
+    width: 100%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+}

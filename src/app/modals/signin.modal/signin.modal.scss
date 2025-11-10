@@ -1,0 +1,110 @@
+@use '../../../style/mixin' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & .signin-welcome-ctnr {
+    flex: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    & h1 {
+      text-align: center;
+    }
+  }
+  & .signin-left {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+
+     & h1 {
+      & span {
+        color: $neon-orange;
+      }
+      font-size: 1.2rem;
+     }
+     & h3 {
+      font-size: 0.7rem;
+      text-align: center;
+     }
+     & p {
+      @include Arvo-bold;
+      font-size: 1rem;
+      & span {
+        color: $neon-orange;
+      }
+     }
+
+     & form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      & .signin-input-ctnr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 25px;
+        overflow: hidden;
+        background-color: rgba(231, 231, 231, 0.952);
+        width: fit-content;
+        padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+        & input {
+          border: none;
+          background-color: inherit;
+        }
+      }
+      & button {
+          border: none;
+          width: 5rem;
+          height: 1.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $neon-orange;
+          @include Arvo-bold(color, white);
+          font-size: larger;
+          width: fit-content;
+          padding: 1rem;
+          border-radius: 25px;
+          cursor: pointer;
+          &:active {
+            background-color: white;
+            outline: solid 1px $neon-orange;
+            color: $neon-orange; 
+          }
+        }
+
+        & .disabled {
+        background-color: gray;
+        &:active {
+          background-color: gray;
+          outline: none;
+          color: white
+        }
+      }
+     }
+
+     & h3 {
+      & a {
+        color: $neon-orange;
+      }
+     }
+  }
+
+  & .signin-right {
+    flex: 50%;
+        display: flex;
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

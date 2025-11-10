@@ -1,0 +1,73 @@
+<div class="todolist-upper-ctnr">
+  <mat-toolbar>
+    <div class="toolbar-ctnr">
+      <div class="toolbar-ctnr-left">
+        <div class="search-bar-ctnr">
+          <input type="text" name="task-search-input" id="task-search-input" class="task-search-input" placeholder="Search your task" #tasksearch/>
+          <button (click)="searchTask(tasksearch.value)" style="
+            cursor: pointer;
+          "><mat-icon>search</mat-icon></button>
+        </div>
+        @if (isArrayFiltered() || isArraySearched()) {
+          <button matButton="filled" (click)="removeFilters()">Remove FIlters</button>
+        } @else {
+          <button matButton="filled" (click)="openAddTaskModal()">Add Task</button>
+        }
+      </div>
+      <div class="toolbar-ctnr-right">
+        <filters-component [filtersActivated]="isArrayFiltered()" [page]="pageIndex" [limit]="pageSize" (emitFilteredArray)="filterTask($event)"/>
+      </div>
+    </div>
+  </mat-toolbar>
+</div>
+@defer (when tasksFetched()){
+  @if (userHasNoTasks()) {
+    <p>No tasks added</p>
+  } @else {
+    <div class="tasks-container">
+    @if (filteredTaskArray().length < 1 && (isArrayFiltered() || isArraySearched())) {
+      No tasks have been found!
+    } @else {
+    @for (task of filteredTaskArray(); track $index) {
+      <mat-card appearance="outlined" [id]="task.id">
+        <mat-card-header>
+          <strong>Label:</strong>
+        </mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>
+            {{task.label}}
+          </mat-card-title>
+        </mat-card-title-group>
+        <mat-card-content>
+          <mat-card-header>Description:</mat-card-header>
+          <div class="mat-card-content-ctnr">
+          {{task.description}}
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button matButton="outlined" (click)="openEditOrDeleteModal('edit', task.id)">Edit</button>
+          <button matButton="outlined" (click)="openEditOrDeleteModal('delete', task.id)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+    }
+    </div>
+  }
+} @loading {
+  <div class="tasks-loading-container">
+      <mat-spinner></mat-spinner>
+  </div>
+} @placeholder (minimum 1s) {
+  <div class="tasks-loading-container">
+      <mat-spinner></mat-spinner>
+  </div>
+}
+<div class="paginator-ctnr">
+  <mat-paginator
+    [length]="totalUserTasks"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>

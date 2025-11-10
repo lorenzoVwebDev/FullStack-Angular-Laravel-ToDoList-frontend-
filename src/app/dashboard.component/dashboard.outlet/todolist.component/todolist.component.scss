@@ -1,0 +1,95 @@
+@use '../../../../style/mixin' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & .toolbar-ctnr-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        & .search-bar-ctnr {
+          display: flex;
+          align-items: center;
+          background-color: $neon-orange;
+          padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+          border-radius: 25px;
+          & input {
+            border: none;
+            background-color: inherit;
+            &:focus {
+              outline: none !important;
+              outline-style: none !important;
+              box-shadow: none !important;
+              border-color: transparent !important;
+            }
+            &::placeholder {
+              color: white;
+            }
+          }
+          & button {
+            border: none;
+            background-color: inherit;
+          }
+        }
+      }
+      & .toolbar-ctnr-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+  & .tasks-loading-container {
+    width: 100%;
+    flex: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & .tasks-container {
+    flex: 80%;
+    display: grid;
+    padding: 1rem 1rem 0.5rem 1rem;
+    grid-template-columns: repeat(5, 19%);
+    grid-template-rows: repeat(2, 50%);
+    column-gap: 1%;
+    row-gap: 3%;
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: top;
+      & .mat-mdc-card-title-group {
+        justify-content: center;
+      }
+      & .mat-mdc-card-content {
+        min-height: 40%;
+        width: 100%;
+        & .mat-mdc-card-header {
+          font-weight: bold;
+        }
+        & .mat-card-content-ctnr {
+          padding: 0.2rem 1rem 1rem 1rem;
+          min-width: 100%;
+          min-height: 100%;
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+        gap: 1rem;
+      }
+    }
+  }
+}

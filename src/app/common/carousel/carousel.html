@@ -1,0 +1,21 @@
+<div class="slider">
+<!--   <h2 class="section-title">Application Features</h2> -->
+  <div class="arrow left" (click)="previous()">《 </div>
+  <div class="arrow right" (click)="next()"> 》</div>
+  <div class="slider-overflow" [ngStyle]="getSlideStyle()">
+    <div class="slides-ctnr" [ngStyle]="sliderContainerWidth()">
+      @for (slide of slides(); track $index) {
+        <div class="slide" [ngStyle]="getSlideStyle()">
+          <mat-icon svgIcon="{{slide.icon}}"></mat-icon>
+          <h4>{{slide.title}}</h4>
+          <p>{{slide.description}}</p>
+        </div>
+      }
+    </div>
+  <div class="dots-container">
+    @for (slide of slides(); track $index) {
+        <div class="dot" [class.active]="currentIndex() === $index" (click)="goToSlide($index)">●</div>
+    }
+  </div>
+  </div>
+</div>

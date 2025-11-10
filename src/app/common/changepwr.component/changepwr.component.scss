@@ -1,0 +1,78 @@
+@use '../../../style/mixin' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+
+  & .changepwr-left {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    & p {
+      color: red;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    & .valid {
+      color: green;
+    }
+
+    & h1 {
+      & span {
+        color: $neon-orange;
+      }
+    }
+    & form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    & .input-ctnr {
+      display: flex;
+      align-items: center;
+      background-color: rgb(226, 225, 225);
+      padding: 0.5rem;
+      border-radius: 25px;
+      & input {
+        border: none;
+        background-color: inherit;
+      &:focus {
+        outline: none !important;
+        outline-style: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+      }
+      }
+    }
+    & button {
+      @include btn1;
+    }
+
+    & .disabled {
+        background-color: gray;
+        &:active {
+          background-color: gray;
+          outline: none;
+          color: white
+        }
+      }
+    }
+  }
+
+  & .changepwr-right {
+    flex: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

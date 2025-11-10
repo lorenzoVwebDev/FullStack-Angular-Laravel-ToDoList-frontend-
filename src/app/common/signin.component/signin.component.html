@@ -1,0 +1,44 @@
+@if (signInOk()) {
+  <div class="signin-welcome-ctnr">
+    <h1>Welcome Again</h1>
+  </div>
+} @else {
+  <div class="signin-left">
+    <h1><span>F</span>ull <span>S</span>tack <span>T</span>o <span>D</span>o <span>L</span>ist</h1>
+    <p><span>S</span>ign <span>I</span>n</p>
+    <form [formGroup]="signInFormGroup" (submit)="signIn()">
+      <div class="signin-input-ctnr">
+        <label for="username-input"><mat-icon>person</mat-icon></label>
+       <input type="text" name="username-input" id="username-input" placeholder="Username or Email" formControlName="username"/>
+      </div>
+      <div class="signin-input-ctnr">
+        <label for="password-input"><mat-icon>lock</mat-icon></label>
+        <input type="password" id="password-input" name="password-input" placeholder="Password" formControlName="password"/>
+      </div>
+      @if (wrongPassword()) {
+        <p style="color: red;
+          font-size: 0.7rem;
+          font-family: Arial, Helvetica, sans-serif;
+          text-decoration: underline;
+        ">Wrong Username or Password!</p>
+      } @else if (attemptExceeded()) {
+        <p style="color: red;
+          font-size: 0.7rem;
+          font-family: Arial, Helvetica, sans-serif;
+          text-decoration: underline;
+        ">Too many attempts; Wait 5 minutes to try again!</p>
+      } @else {
+        <br/>
+        <br/>
+      }
+      <button type="submit" [submitdisabledDirective]="signInFormGroup.valid">Sign In</button>
+    </form>
+    <h3>Have you not signed-up yet? <a [routerLink]="['/signup']">Sign Up</a></h3>
+    <h3>Did you forget your password? <a [routerLink]="['/changepwr']">Change Password</a></h3>
+  </div>
+}
+
+
+  <div class="signin-right">
+    <img [ngSrc]="imgPath" alt="todo list image" width="200" height="200" priority/>
+  </div>

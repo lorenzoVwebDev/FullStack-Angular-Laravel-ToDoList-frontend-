@@ -1,0 +1,41 @@
+@use '../../../../../style/mixin' as *;
+
+:host {
+  & .mat-expansion-panel {
+    z-index: 1000 !important;
+    & .mat-mdc-card {
+      padding: 1rem 0.5rem 1rem 0.5rem;
+      & form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      & .date-input-ctnr {
+        display: flex;
+        gap: 1rem;
+      & .mat-calendar {
+        z-index: 9999 !important;
+      }
+      
+      }
+
+      & .selectors-ctnr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        & .select-label-ctnr {
+          display: flex;
+          flex-direction: column;
+
+        }
+      }
+      & .submit-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    }
+
+  }
+}

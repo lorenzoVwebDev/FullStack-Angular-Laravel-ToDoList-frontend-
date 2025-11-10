@@ -1,0 +1,52 @@
+@if (dialogData.type === "delete") {
+  @if (!this.taskDeleted()) {
+  <h2 mat-dialog-title>Delete Task</h2>
+<mat-dialog-content>
+  Would you like to delete the task?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close (click)="deleteTask('N')">No</button>
+  <button matButton cdkFocusInitial (click)="deleteTask('Y')">Ok</button>
+</mat-dialog-actions>
+  } @else {
+    <h1><span>T</span>ask <span>D</span>eleted!</h1>
+  }
+} @else {
+
+  @if (!this.taskEdited()) {
+<h2 mat-dialog-title
+  style="
+    font-weight: bold;
+  "
+>Edit Task</h2>
+<mat-dialog-content>
+  <h3 style="font-weight: normal;">Would you like to edit the task?</h3>
+  <form [formGroup]="editTaskFormGroup">
+    <label for="edit-task-description">Modify Description</label>
+    <textarea type="text" id="edit-task-description" name="edit-task-description" formControlName="description"></textarea>
+    <label class="switch">
+    <label for="edit-task-task-done">Complete task</label>
+    <div class="edit-task-task-done-ctnr">
+      <input type="checkbox" id="edit-task-task-done" formControlName="taskDone">
+      <span class="slider"></span>
+    </div>
+    <div class="addtask-modal-duedate-ctnr">
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dueDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+      </mat-form-field>
+    </div>
+</label>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close (click)="editTask('N')">Cancel</button>
+  <button matButton cdkFocusInitial (click)="editTask('Y')" [disabled]="!editTaskFormGroup.valid">Modify</button>
+</mat-dialog-actions>
+  } @else {
+    <h1><span>T</span>ask <span>E</span>dited!</h1>
+  }
+}

@@ -1,0 +1,41 @@
+@if (isSignUpOk()) {
+  <div class="signup-left">
+    <h1>You're Welcome In <span>T</span>o <span>D</span>o <span>L</span>ist <span>F</span>ullstack</h1>
+  </div>
+} @else {
+  <div class="signup-left">
+    <h1>Sign Up In <span>T</span>o <span>D</span>o <span>L</span>ist <span>F</span>ullstack</h1>
+
+    <form [formGroup]="signUpFormGroup" (submit)="signUp()">
+      <div class="signup-input-ctnr">
+        <label for=""><mat-icon>person</mat-icon></label>
+        <input type="text" name="username" id="username" formControlName="username" placeholder="Insert Username"/>
+      </div>
+      <div class="signup-input-ctnr">
+        <label for="email"><mat-icon>mail</mat-icon></label>
+        <input type="email" name="email" id="email" formControlName="email" placeholder="Insert Email"/>
+      </div>
+      <div class="signup-input-ctnr">
+        <label for="password"><mat-icon>key</mat-icon></label>
+        <input type="password" name="password" id="password" formControlName="password" placeholder="Insert Password"/>
+      </div>
+      <div class="signup-input-ctnr">
+        <label for="confirmPassword"><mat-icon>done_outline</mat-icon></label>
+        <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword" placeholder="Confrim Password"/>
+      </div>
+      <div class="signup-input-ctnr">
+        <label for="avatar"><mat-icon>avatar</mat-icon></label>
+        <input type="file" name="avatar" id="avatar" formControlName="avatar" placeholder="avatar"/>
+      </div>
+      <button type="submit" [submitdisabledDirective]="signUpFormGroup.valid">Sign Up</button>
+    </form>
+    @if (duplicateUser()) {
+      <p style="
+          color: red;
+      ">Username or mail exists yet! Please choose another one!</p>
+    }
+  </div>
+}
+  <div class="signup-right">
+    <img [ngSrc]="imgPath" alt="Todolist Fullstack Img" width="200" height="200" priority="high"/>
+  </div>

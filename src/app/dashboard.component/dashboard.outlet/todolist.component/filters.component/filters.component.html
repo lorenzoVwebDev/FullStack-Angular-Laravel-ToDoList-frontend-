@@ -1,0 +1,56 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" [(expanded)]="panelOpenState" #expansionpanel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Filters
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+      <mat-card appearance="outlined">
+        <form [formGroup]="filtersForm" (submit)="applyFilters()">
+          <div class="date-input-ctnr">
+            <mat-form-field class="example-full-width">
+              <mat-label><span style="
+                  display: flex;
+                  align-items: center;
+                ">Added before <mat-icon>arrow_right_alt</mat-icon></span></mat-label>
+              <input matInput [matDatepicker]="pickerBefore" formControlName="addedBefore">
+              <mat-datepicker-toggle matIconSuffix [for]="pickerBefore">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #pickerBefore></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label >Added after <mat-icon>arrow_right_alt</mat-icon></mat-label>
+              <input matInput [matDatepicker]="pickerAfter" formControlName="addedAfter">
+              <mat-datepicker-toggle matIconSuffix [for]="pickerAfter">
+              <mat-icon matDatepickerToggleIcon>date_range</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #pickerAfter></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="selectors-ctnr">
+            <div class="select-label-ctnr">
+              <label for="owner-selector">Select Task's Subject: </label>
+              <select name="owner-selector" id="owner-selector" formControlName="taskSubject">
+                <option selected disabled>Task's Subject</option>
+                @for (subject of subjectArray; track $index) {
+                  <option value="{{subject}}">{{subject}}</option>
+                } 
+              </select>
+            </div>
+            <div class="select-label-ctnr">
+              <label for="task-done">Task Overdue: </label>
+              <select name="task-done" id="task-done" formControlName="taskDone">
+                <option value="Is task done?" selected disabled>Select Option</option>
+                <option value="Y">Yes</option>
+                <option value="N">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="submit-container">
+            <button type="submit" matButton="filled" (click)="expansionpanel.close()">Apply Filters</button>
+          </div>
+        </form>
+      </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

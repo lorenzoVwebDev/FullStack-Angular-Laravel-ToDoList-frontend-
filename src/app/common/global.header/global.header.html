@@ -1,0 +1,23 @@
+<header class="header-container">
+<div class="header-left" (click)="navigateHome()">
+<span>T</span>o
+do list <span>F</span>ull Stack
+</div>
+<div class="header-right">
+  <nav>
+    <ul>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li><a routerLink="/dashboard/todolist">FullStack ToDoList</a></li>
+      <li><a routerLink="/dashboard/contacts">Contacts</a></li>
+    </ul>
+  </nav>
+  @if (browser) {
+      @if (!signedIn()) {
+        <button (click)="openSignInModal()"><mat-icon>person</mat-icon>Sign In</button>
+  } @else {
+        <button (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
+  }
+  }
+
+</div>
+</header>

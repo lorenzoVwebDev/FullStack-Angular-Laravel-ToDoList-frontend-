@@ -1,0 +1,9 @@
+:host {
+  & .dashboard-wrapper {
+    display: flex;
+  }
+
+  & .collapsed {
+    width: 4rem;
+  }
+}

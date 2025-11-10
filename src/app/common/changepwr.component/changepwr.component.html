@@ -1,0 +1,52 @@
+@if (pwrChanged()) {
+  <div class="changepwr-left">
+    <h1><span>P</span>assword <span>C</span>hanged</h1>
+  </div>
+} @else {
+  <div class="changepwr-left">
+    <h1><span>C</span>hange <span>Y</span>our <span>P</span>assword</h1>
+    <form [formGroup]="changepwrFormGroup" (submit)="changePwr()">
+      <div class="input-ctnr">
+        <label for="usernameOrEmail"><mat-icon>person</mat-icon></label>
+        <input type="text" name="usernameOrEmail" id="usernameOrEmail" formControlName="usernameOrEmail" placeholder="Insert Username Or Email"/>
+      </div>
+            <div class="input-ctnr">
+        <label for="oldPassword"><mat-icon>lock</mat-icon></label>
+        <input type="password" name="oldPassword" id="oldPassword" formControlName="oldPassword" placeholder="Insert Current Password"/>
+      </div>
+            <div class="input-ctnr">
+        <label for="newPassword"><mat-icon>key</mat-icon></label>
+        <input type="password" name="newPassword" id="newPassword" formControlName="newPassword" placeholder="Insert New Password" (input)="checkNewPassword()"/>
+      </div>
+            <div class="input-ctnr">
+        <label for="confirmPassword">
+          @if (notEqualPasswords()) {
+            <mat-icon>done_outline</mat-icon>
+          } @else {
+            <mat-icon><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#75FB4C"><path d="m381-240 424-424-57-56-368 367-169-170-57 57 227 226Zm0 113L42-466l169-170 170 170 366-367 172 168-538 538Z"/></svg></mat-icon>
+          }
+        
+        </label>
+        <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm New Password" (input)="checkNewPassword()"/>
+      </div>
+      <button type="submit" [submitdisabledDirective]="changepwrFormGroup.valid">Change Password</button>
+
+    </form>
+    <p [ngClass]="{'valid': invalidPattern() ? false : true}">New password must be 8–32 characters long, include at least one uppercase letter, 
+      one lowercase letter, one number, and one special character (@, $, !, %, *, ?, &).
+    </p>
+    @if (errorResponse() === "not-found") {
+      <p>Username or Password are wrong</p>
+    } @else if (errorResponse() === "equal-to-old-password") {
+      <p>Password must be different from old password</p>
+    } @else if (errorResponse() === "invalid-password") {
+      <p>Invalid New Password</p>
+    } @else if (errorResponse() === "wrong-password") {
+      <p>Username or Password are wrong</p>
+    }
+  </div>
+}
+
+<div class="changepwr-right">
+  <img [ngSrc]="imgPath" priority="high" width="200" height="200"/>
+</div>

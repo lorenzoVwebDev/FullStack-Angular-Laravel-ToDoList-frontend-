@@ -1,0 +1,100 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.error-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #dc3545; // Red for error theme
+}
+
+.error-title {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #dc3545;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.error-subtitle {
+  font-size: 1.5rem;
+  color: #6c757d;
+  margin: 0 0 1.5rem 0;
+}
+
+.error-message {
+  font-size: 1.1rem;
+  color: #495057;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+
+  &:hover {
+    background-color: #545b62;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .error-title {
+    font-size: 4rem;
+  }
+
+  .error-icon {
+    font-size: 3rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}

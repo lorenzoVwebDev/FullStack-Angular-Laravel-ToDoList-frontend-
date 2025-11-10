@@ -1,0 +1,6 @@
+<global-header/>
+<div class="dashboard-wrapper">
+  <sidebar-component [sideBarStatus]="sideBarStatus()" (sideBarStatusEmitter)="sideBarStatus.set($event)" [ngClass]="{'collapsed': sideBarStatus() ? false : true}"/>
+  <dashboard-outlet/>
+</div>
+<global-footer/>

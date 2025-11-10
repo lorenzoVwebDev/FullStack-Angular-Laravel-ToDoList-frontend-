@@ -1,0 +1,33 @@
+@use '../../../style/mixin' as *;
+
+:host {
+  & h1 {
+    text-align: center;
+    & span {
+      color: $neon-orange;
+    }
+  }
+  & form {
+    display: flex;
+    flex-direction: column;
+    & textarea {
+      border: solid 1px hsl(150 30% 60% / 20%);
+      border-radius: 10px 10px 10px 10px;
+      width: 100%;
+      min-height: 5rem;
+      height: fit-content;
+      padding-left: 1rem;
+      padding-top: 1rem;
+      resize: none;
+      &:focus {
+        outline: none !important;
+        outline-style: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+      }
+    }
+    & .edit-task-task-done-ctnr {
+
+    }
+  }
+}

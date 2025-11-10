@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+$blue-fb: rgb(8, 144, 255);
+$blue-fb-dark: rgb(8, 33, 255);
+$white-font: rgb(255, 255, 255);
+$black-footer: rgb(23, 23, 23);
+$neon-orange: #FF5C00;
+$neon-red: #FF3131;
+$beige: #F5F5DC;
+$sidebar-nav: #012a5b;
+$text-color: #f5f5f5;
+$hover-color: #12f7ff;
+$bg-color: #250821;
+$second-bg-color: #292e33;
+$big-font: 2.5rem;
+$norma-font: 2rem;
+$neon-box-shadow: 0 0 .5rem #12f7ff;
+$h2-font: 3rem;
+$font-neon-text-shadow: 0 0 10px rgba(18,247,255,0.3),
+  0 0 20px rgba(18,247,255,0.3),
+  0 0 30px rgba(18,247,255,0.3),
+  0 0 40px rgba(18,247,255,0.3),
+  0 0 70px rgba(18,247,255,0.3),
+  0 0 80px rgba(18,247,255,0.3),
+  0 0 100px rgba(18,247,255,0.3),
+  0 0 150px rgba(18,247,255,0.3);
+$primary-color: #ff6b6b;
+$primary-light: #ff8e8e;
+$primary-dark: #e05555;
+$secondary-color: #4ecdc4;
+$accent-color: #ffe66d;
+$light-color: #f7fff7;
+$dark-color: #292f36;
+$gray-light: #f1f1f1;
+$gray-medium: #d1d1d1;
+$gray-dark: #777;
+$success-color: #6bff6b;
+$warning-color: #ffcc5c;
+$danger-color: #ff6b6b;
+$font-primary: 'Poppins', sans-serif;
+$box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+@mixin arvo-light {
+  font-family: "Arvo", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@mixin Arvo-regular($property: color,$value: black) {
+  font-family: "Arvo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  #{$property}: $value;
+}
+
+@mixin Arvo-medium {
+  font-family: "Arvo", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin Arvo-bold($property: color, $value: black) {
+  font-family: "Arvo", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  #{$property}: $value;
+}
+
+@mixin Arvo-light-italic {
+  font-family: "Arvo", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+@mixin Arvo-regular-italic {
+  font-family: "Arvo", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@mixin Arvo-medium-italic {
+  font-family: "Arvo", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@mixin Arvo-bold-italic {
+  font-family: "Arvo", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@mixin poppins-thin {
+  font-family: "Poppins", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+@mixin poppins-light {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@mixin poppins-regular {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin poppins-medium {
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin poppins-bold {
+  font-family: "Poppins", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin btn1 {
+  border: none;
+  width: 5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $neon-orange;
+  @include Arvo-bold(color, white);
+  font-size: larger;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  &:active {
+    background-color: white;
+    outline: solid 1px $neon-orange;
+    color: $neon-orange;
+  }
+}

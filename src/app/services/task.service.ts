@@ -35,7 +35,7 @@ export class TaskService {
   postTask(task: TaskType) {
     let headers = new HttpHeaders().append(environment.tokenHeader, `Bearer ${this.jwtApi.accessToken}`)
 
-    return this.http.post(`${environment.apiUrl}tasks/`, task, {
+    return this.http.post(`${environment.apiUrl}tasks`, task, {
       headers,
       withCredentials: true,
       observe: "response"
@@ -50,7 +50,7 @@ export class TaskService {
   }) {
     let headers = new HttpHeaders().append(environment.tokenHeader, `Bearer ${this.jwtApi.accessToken}`)
 /*     console.log(newTask) */
-    return this.http.put(`${environment.apiUrl}tasks/`, newTask, {
+    return this.http.put(`${environment.apiUrl}tasks`, newTask, {
       headers,
       observe: "response",
       withCredentials: true

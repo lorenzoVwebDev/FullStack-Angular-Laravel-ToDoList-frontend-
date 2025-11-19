@@ -22,7 +22,14 @@
 </div>
 @defer (when tasksFetched()){
   @if (userHasNoTasks()) {
-    <p>No tasks added</p>
+    <div class="tasks-container" style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      ">
+      <mat-icon svgIcon="sadface"></mat-icon>
+      <p>No Task In Place</p>
+    </div>
   } @else {
     <div class="tasks-container">
     @if (filteredTaskArray().length < 1 && (isArrayFiltered() || isArraySearched())) {
@@ -43,6 +50,9 @@
           <div class="mat-card-content-ctnr">
           {{task.description}}
           </div>
+          @if (task.dueDate) {
+            <div class="expiration-date">exp: {{timeStampToDate(task.dueDate) | date:'shortDate'}}</div>
+          }
         </mat-card-content>
         <mat-card-actions>
           <button matButton="outlined" (click)="openEditOrDeleteModal('edit', task.id)">Edit</button>

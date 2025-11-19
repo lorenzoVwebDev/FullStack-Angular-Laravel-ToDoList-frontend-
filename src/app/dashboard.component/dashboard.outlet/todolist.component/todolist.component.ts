@@ -1,4 +1,5 @@
 import { Component, OnInit, signal, ChangeDetectionStrategy, PLATFORM_ID, inject } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 //components
@@ -18,12 +19,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { environment } from 'environments/environment.development';
+import { MatIconRegistry } from '@angular/material/icon';
 //dependencies
 import striptags from 'striptags'
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-todolist.component',
-  imports: [MatPaginatorModule, MatCardModule, MatButtonModule, MatToolbarModule, MatIcon, FilterComponent, MatProgressSpinnerModule],
+  imports: [MatPaginatorModule, MatCardModule, MatButtonModule, MatToolbarModule, MatIcon, FilterComponent, MatProgressSpinnerModule, DatePipe],
   templateUrl: './todolist.component.html',
   styleUrl: './todolist.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -41,7 +44,11 @@ export class TodolistComponent implements OnInit {
   filteredTaskArray = signal<TaskType[]>([])
   platformId = inject(PLATFORM_ID)
 
-  constructor(public jwtApi: JwtService, public taskApi: TaskService, public router: Router, public dialog: MatDialog) {}
+  constructor(public jwtApi: JwtService, public taskApi: TaskService, public router: Router, public dialog: MatDialog, private matRegistry: MatIconRegistry, private domSanitaizer: DomSanitizer) {
+    this.matRegistry.addSvgIcon("sadface", this.domSanitaizer.bypassSecurityTrustResourceUrl(`${environment.apiUrl}assets/icons/sad-face.svg`), {
+      withCredentials: false
+    });
+  }
 
   ngOnInit() {
     this.getPageTasks()
@@ -288,5 +295,12 @@ export class TodolistComponent implements OnInit {
         this.searchTask(this.searchKeyWord())
       }
     }
+  }
+
+  timeStampToDate(unix: number | string | undefined) {
+    if (!unix) return
+    console.log(unix)
+    if (typeof unix != 'number') return
+    return new Date(unix * 1000)
   }
 }

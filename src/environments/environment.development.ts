@@ -1,6 +1,12 @@
 export const environment = {
   apiUrl: "https://apachebackend.lorenzo-viganego.com/fullstack-todolist/public/",
-  tokenHeader: "__todo__jwt_h"
+  cookieDomain: ".lorenzo-viganego.com",
+  tokenHeader: "Todo-Jwth"
 };
 
-//set http://localhost:8000/ in development environment
+//set apiUrl = http://localhost:8000/ dev
+//https://apachebackend.lorenzo-viganego.com/fullstack-todolist/public/ prod
+
+//set cookieDomain = localhost dev
+//.lorenzo-viganego.com prod
+

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode as jwt_decode} from "jwt-decode";
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'environments/environment.development';
 import dayjs from 'dayjs'
 //types
 import { type UserInfoType } from 'types/types';
@@ -9,7 +10,7 @@ import { type UserInfoType } from 'types/types';
 })
 export class JwtService {
   accessToken: string = "";
-  decodedAccessToken: {[key: string]: string} | undefined = undefined 
+  decodedAccessToken: {[key: string]: string} | undefined = undefined
   constructor( private cookieService: CookieService) {}
 
   set setAccessToken(token: string) {
@@ -43,13 +44,13 @@ export class JwtService {
 
   getExpirationTime() {
     if (this.decodedAccessToken) {
-      const tokenExp = this.decodedAccessToken['exp'] 
+      const tokenExp = this.decodedAccessToken['exp']
       return tokenExp;
     } else {
       if (this.accessToken) {
         this.decodeAccessToken()
         if (this.decodedAccessToken) {
-          const tokenExp = this.decodedAccessToken['exp'] 
+          const tokenExp = this.decodedAccessToken['exp']
           return tokenExp;
         } else return undefined
       } else return undefined
@@ -87,7 +88,7 @@ export class JwtService {
     let bool = false;
     document.cookie.split("; ").forEach((cookie) => {
       if (cookie.includes("refreshToken=")) {
-        document.cookie = "refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = `refreshToken=; path=/; domain=${environment.cookieDomain}; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
         bool = true
       }
     })

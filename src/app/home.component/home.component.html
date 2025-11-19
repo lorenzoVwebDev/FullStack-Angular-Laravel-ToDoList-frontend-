@@ -36,6 +36,11 @@
                   </div>
                   <button type="submit" [submitdisabledDirective]="signUpFormGroup.valid">Sign Up</button>
                   </form>
+                  @if (duplicateUser()) {
+                    <p style="
+                        color: red;
+                    ">Username or mail exists yet! Please choose another one!</p>
+                  }
                 } @else {
                   <div class="welcome-ctnr">
                     <h3>You're Welcome In <span>T</span>o <span>D</span>o <span>L</span>ist <span>F</span>ullstack</h3>
@@ -47,8 +52,14 @@
                 <img [src]="imgPath" alt=""/>
               </div>
             }
+          } @placeholder {
+            <div class="hero-form">
+              <mat-spinner></mat-spinner>
+            </div>
           } @loading {
-            <div>I am Loading!</div>
+            <div class="hero-form">
+              <mat-spinner></mat-spinner>
+            </div>
           }
         </div>
     </section>

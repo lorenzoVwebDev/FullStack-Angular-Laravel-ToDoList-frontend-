@@ -111,12 +111,14 @@
     & .hero {
         background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.804)),
         url('https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png') no-repeat center center/cover;
-        padding: 0rem 0 7rem 0;
+        padding: 4rem 0 4rem 0;
+
       & .container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 40px;
+        min-height: 30rem;
         & .hero-content {
             flex: 1;
             max-width: 600px;
@@ -149,6 +151,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-height: 25rem;
             & .welcome-ctnr {
               & h3 {
               text-align: center;
@@ -219,6 +222,7 @@
 
     /* Features Section */
     & .features {
+      padding: 4rem 0 4rem 0;
       & .container {
         display: flex;
         width: 500px;
@@ -267,6 +271,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+                padding: 4rem 0 4rem 0;
       & .slider-ctnr {
         height: 25rem;
 /*         & .testimonial-slider {
@@ -332,6 +337,7 @@
 
     /* About Section */
     & .about {
+      padding: 4rem 0 4rem 0;
       & .container {
         display: flex;
         align-items: center;

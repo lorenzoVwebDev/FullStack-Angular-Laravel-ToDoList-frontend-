@@ -14,6 +14,8 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { Carousel } from '@common/carousel/carousel';
 import { GlobalFooter } from '../common/global.footer/global.footer';
 import { GlobalHeader } from '../common/global.header/global.header';
+//material
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 //rxjs
 import { toSignal } from '@angular/core/rxjs-interop';
 //services
@@ -34,7 +36,7 @@ const validateFile = (control: AbstractControl): ValidationErrors | null => {
 
 @Component({
   selector: 'home-component',
-  imports: [GlobalFooter, GlobalHeader, ReactiveFormsModule, NgOptimizedImage, SubmitdisabledDirective, MatIconModule, RouterLink, Carousel],
+  imports: [GlobalFooter, GlobalHeader, ReactiveFormsModule, NgOptimizedImage, SubmitdisabledDirective, MatIconModule, RouterLink, Carousel, MatProgressSpinnerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

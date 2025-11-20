@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal, AfterViewInit, PLATFORM_ID, inject, computed } from '@angular/core';
+import { Component, signal, WritableSignal, AfterViewInit, PLATFORM_ID, inject, computed, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
@@ -18,6 +18,9 @@ import { toSignal } from '@angular/core/rxjs-interop';
   styleUrl: './global.header.scss'
 })
 export class GlobalHeader /* implements AfterViewInit */ {
+  @ViewChild('headerRight') headerRight: ElementRef | undefined;
+  @ViewChild('burger') burger: ElementRef | undefined;
+  burgerVisible = signal(false);
   browser = false
   private route = inject(ActivatedRoute)
   private routeData = toSignal(this.route.data)
@@ -36,46 +39,6 @@ export class GlobalHeader /* implements AfterViewInit */ {
       if (isPlatformBrowser(this.platformId)) {
         this.browser = true
       }
-/*     if (isPlatformBrowser(this.platformId)) {
-
-      if (this.jwtApi.isAccessTokenExpired() === "not-expired" && this.jwtApi.refreshTokenInPlace()) {
-
-      this.signedIn.set(true)
-    } else if (this.jwtApi.refreshTokenInPlace()) {
-
-      this.authApi.getNewAccessToken().subscribe(res => {
-        const accessToken = res.headers.get(environment.tokenHeader)
-        if (!accessToken) return
-        this.jwtApi.setAccessToken = accessToken
-        this.signedIn.set(true)
-      }, (err: HttpErrorResponse) => {
-          switch (err.status) {
-            case (401): {
-              const response = err.error?.response;
-              if (response === "jwt-unauthorized") {
-                this.jwtApi.setAccessToken = "";
-                this.jwtApi.deleteRefreshToken()
-              }
-              break
-            };
-            case (403): {
-              if (err.error?.response === "jwt-not-found") {
-                this.jwtApi.setAccessToken = "";
-                this.jwtApi.deleteRefreshToken()
-              }
-              break
-            }
-          default: {
-            this.router.navigate(["/error500"])
-          }
-          }
-      })
-    } else {
-      this.signedIn.set(false)
-      this.jwtApi.setAccessToken = ""
-      this.jwtApi.deleteRefreshToken()
-    }
-    } */
   }
 
   navigateHome() {
@@ -126,5 +89,11 @@ export class GlobalHeader /* implements AfterViewInit */ {
         }
       }
     })
+  }
+
+  toggleNavBar() {
+    this.headerRight?.nativeElement.classList.toggle('header-right-visible')
+    this.burger?.nativeElement.classList.toggle('hamburger-rotate')
+    this.burgerVisible.update((state) => !state);
   }
 }

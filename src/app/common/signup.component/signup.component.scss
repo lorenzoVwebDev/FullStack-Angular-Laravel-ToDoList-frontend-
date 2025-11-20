@@ -71,3 +71,91 @@
     }
   }
 }
+
+@media (max-width: 750px) {
+:host {
+
+  & .signup-left {
+
+    & h1 {
+      & span {
+
+      }
+    }
+    & form {
+
+      & .signup-input-ctnr {
+
+        & input {
+
+        &:focus {
+
+        }
+        }
+      }
+      & button {
+        @include btn1;
+      }
+
+      & .disabled {
+
+        &:active {
+
+        }
+      }
+    }
+  }
+
+  & .signup-right {
+    display: none;
+    & img {
+
+    }
+  }
+}
+}
+
+
+@media (max-width: 400px) {
+:host {
+
+  & .signup-left {
+
+    & h1 {
+      font-size: 1.5rem;
+      & span {
+
+      }
+    }
+    & form {
+
+      & .signup-input-ctnr {
+
+        & input {
+
+        &:focus {
+
+        }
+        }
+      }
+      & button {
+        @include btn1;
+      }
+
+      & .disabled {
+
+        &:active {
+
+        }
+      }
+    }
+  }
+
+  & .signup-right {
+    display: none;
+    & img {
+
+    }
+  }
+}
+}

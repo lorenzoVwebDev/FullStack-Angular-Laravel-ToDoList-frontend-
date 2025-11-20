@@ -5,7 +5,7 @@ import { JwtService } from 'app/services/jwt.service';
 import { AuthService } from 'app/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { environment } from 'environments/environment.development';
-import { MatIcon } from '@angular/material/icon';  
+import { MatIcon } from '@angular/material/icon';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SubmitdisabledDirective } from 'app/directives/submitdisabled.directive';
 @Component({
@@ -24,7 +24,7 @@ export class SigninComponent {
     username: new FormControl("", [Validators.pattern(this.usernameRegex), Validators.required]),
     password: new FormControl("", [Validators.pattern(this.pwrRegex), Validators.required])
   })
-  imgPath: String = "https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png"
+  imgPath: String = `${environment.apiUrl}assets/lcp/home-lcp.png`
   constructor(public jwtApi: JwtService, public authApi: AuthService, private router: Router) {}
 
   signIn() {
@@ -55,7 +55,7 @@ export class SigninComponent {
               this.attemptExceeded.set(true)
             }
             break
-          } 
+          }
           case 400: {
             this.wrongPassword.set(false)
             if (err.error?.response === "missing-credentials") {

@@ -110,8 +110,8 @@
     /* Hero Section */
     & .hero {
         background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.804)),
-        url('https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png') no-repeat center center/cover;
-        padding: 4rem 0 4rem 0;
+        url('https://apachebackend.lorenzo-viganego.com/fullstack-todolist/public/assets/lcp/home-lcp.png') no-repeat center center/cover;
+        padding: 4rem 4rem 4rem 4rem;
 
       & .container {
         display: flex;
@@ -222,7 +222,7 @@
 
     /* Features Section */
     & .features {
-      padding: 4rem 0 4rem 0;
+      padding: 4rem 4rem 4rem 4rem;
       & .container {
         display: flex;
         width: 500px;
@@ -230,10 +230,29 @@
         flex-direction: column;
         align-items: center;
         gap: 40px;
+        & .features-section-title {
+                  text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        & span {
+          color: $neon-orange;
+        }
+          &::after {
+              content: '';
+              position: absolute;
+              bottom: -15px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 80px;
+              height: 4px;
+              background-color: $primary-color;
+              border-radius: 2px;
+          }
+        }
       }
       & .features-grid {
           display: grid;
-          grid-template-columns: repeat(4, 20rem);
+          grid-template-columns: repeat(4, calc(20vw));
           gap: 30px;
           margin-top: 50px;
         & .feature-card {
@@ -271,7 +290,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-                padding: 4rem 0 4rem 0;
+                padding: 4rem 4rem 4rem 4rem;
       & .slider-ctnr {
         height: 25rem;
 /*         & .testimonial-slider {
@@ -337,7 +356,7 @@
 
     /* About Section */
     & .about {
-      padding: 4rem 0 4rem 0;
+      padding: 4rem 4rem 4rem 4rem;
       & .container {
         display: flex;
         align-items: center;
@@ -395,4 +414,1742 @@
         }
     }   //end of host
   }
+}
+
+@media (max-width: 1000px) {
+:host {
+  & .home-component-wrapper {
+
+
+    & .container {
+
+    }
+
+    & h1, h2, h3, h4 {
+
+    }
+
+    & h1 {
+
+    }
+
+    & h2 {
+
+    }
+
+    & h3 {
+
+    }
+
+    & p {
+
+    }
+
+    & img {
+
+    }
+
+    & a {
+
+    }
+
+    & ul {
+
+    }
+
+    & .btn-primary {
+
+    }
+
+    & .btn-primary:hover {
+
+    }
+
+    & .btn-outline {
+
+    }
+
+    & .btn-outline:hover {
+
+    }
+
+    & .section-title {
+
+        & span {
+
+        }
+    }
+
+    & .section-title::after {
+
+    }
+
+    /* Hero Section */
+    & .hero {
+
+
+      & .container {
+
+        & .hero-content {
+
+          & h1 {
+            font-size: 2rem;
+            & span {
+
+            }
+          }
+
+          & p {
+            font-size: 1rem;
+          }
+
+        }
+
+        & .hero-form {
+          flex: none;
+          width: 18rem;
+            & .welcome-ctnr {
+              & h3 {
+
+              & span {
+
+              }
+              }
+            }
+
+            & h3 {
+
+              & span {
+
+              }
+            }
+            & form {
+              & .signup-input-ctnr {
+
+                & input {
+                  width: 9rem;
+                  &:focus {
+
+                  }
+                }
+              }
+              & button {
+
+              }
+
+              & .disabled {
+
+                &:active {
+
+                }
+              }
+            }
+        }
+
+        & .hero-img-ctnr {
+
+        }
+      }
+    }
+
+
+
+    /* Features Section */
+    & .features {
+
+      & .container {
+
+      }
+      & .features-grid {
+
+        & .feature-card {
+          font-size: 0.5rem;
+          padding: 15px;
+          & h3 {
+            font-size: 2em;
+          }
+          & p {
+            font-size: 1.5em;
+            margin: 0;
+          }
+          &:hover {
+
+          }
+
+          & .feature-icon {
+              width: 1.5em;
+              height: 1.5em;
+          }
+        }
+      }
+    }
+
+
+    /* Testimonials Section */
+    & .testimonials {
+
+      & .slider-ctnr {
+
+/*         & .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+
+          & .testimonial {
+              display: none;
+              text-align: center;
+              padding: 0 20px;
+              animation: fadeIn 0.5s ease;
+            & .testimonial-content {
+              background-color: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: $box-shadow;
+
+              & h4 {
+                color: $primary-color;
+              }
+
+              & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid $primary-light;
+              }
+
+              & p {
+                font-style: italic;
+                margin-bottom: 20px;
+                position: relative;
+                &::before, &::after {
+                  content: '"';
+                  font-size: 2rem;
+                  color: $primary-light;
+                  opacity: 0.5;
+                }
+              }
+
+              & span {
+                  color: $gray-dark;
+                  font-size: 0.9rem;
+              }
+            }
+          }
+
+          & .testimonial.active {
+            display: block;
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+        } */
+      }
+    }
+
+    /* About Section */
+    & .about {
+
+      & .container {
+
+        & .about-content {
+          & .section-title {
+            font-size: 2rem;
+          }
+
+          & p {
+            font-size: 0.8rem;
+          }
+          & .stats {
+
+            & .stat-item {
+
+                & h3 {
+
+                }
+
+                & p {
+
+                }
+            }
+          }
+        }
+
+        & .about-image {
+
+            & img {
+
+            }
+        }
+      }
+    }
+
+    /* CTA Section */
+    & .cta {
+
+        & h2 {
+          font-size: 2rem;
+        }
+
+        & p {
+          font-size: 1rem;
+        }
+    }   //end of host
+  }
+}
+}
+
+@media (max-width: 700px) {
+:host {
+  & .home-component-wrapper {
+
+
+    & .container {
+
+    }
+
+    & h1, h2, h3, h4 {
+
+    }
+
+    & h1 {
+
+    }
+
+    & h2 {
+
+    }
+
+    & h3 {
+
+    }
+
+    & p {
+
+    }
+
+    & img {
+
+    }
+
+    & a {
+
+    }
+
+    & ul {
+
+    }
+
+    & .btn-primary {
+      font-size: 0.7rem;
+      padding: 0.5rem;
+    }
+
+    & .btn-primary:hover {
+
+    }
+
+    & .btn-outline {
+
+    }
+
+    & .btn-outline:hover {
+
+    }
+
+    & .section-title {
+
+        & span {
+
+        }
+    }
+
+    & .section-title::after {
+
+    }
+
+    /* Hero Section */
+    & .hero {
+
+
+      & .container {
+
+        & .hero-content {
+
+          & h1 {
+
+            & span {
+
+            }
+          }
+
+          & p {
+
+          }
+
+        }
+
+        & .hero-form {
+
+            & .welcome-ctnr {
+              & h3 {
+
+              & span {
+
+              }
+              }
+            }
+
+            & h3 {
+
+              & span {
+
+              }
+            }
+            & form {
+              & .signup-input-ctnr {
+
+                & input {
+
+                  &:focus {
+
+                  }
+                }
+              }
+              & button {
+
+              }
+
+              & .disabled {
+
+                &:active {
+
+                }
+              }
+            }
+        }
+
+        & .hero-img-ctnr {
+
+        }
+      }
+    }
+
+
+
+    /* Features Section */
+    & .features {
+
+      & .container {
+
+      }
+      & .features-grid {
+        & .feature-card {
+
+          & h3 {
+            margin: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.7em;
+          }
+          & p {
+            font-size: 1.2em;
+            line-height: 1.5em;
+          }
+          &:hover {
+
+          }
+
+          & .feature-icon {
+
+          }
+        }
+      }
+    }
+
+
+    /* Testimonials Section */
+    & .testimonials {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      & .slider-ctnr {
+
+/*         & .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+
+          & .testimonial {
+              display: none;
+              text-align: center;
+              padding: 0 20px;
+              animation: fadeIn 0.5s ease;
+            & .testimonial-content {
+              background-color: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: $box-shadow;
+
+              & h4 {
+                color: $primary-color;
+              }
+
+              & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid $primary-light;
+              }
+
+              & p {
+                font-style: italic;
+                margin-bottom: 20px;
+                position: relative;
+                &::before, &::after {
+                  content: '"';
+                  font-size: 2rem;
+                  color: $primary-light;
+                  opacity: 0.5;
+                }
+              }
+
+              & span {
+                  color: $gray-dark;
+                  font-size: 0.9rem;
+              }
+            }
+          }
+
+          & .testimonial.active {
+            display: block;
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+        } */
+      }
+    }
+
+    /* About Section */
+    & .about {
+
+      & .container {
+
+        & .about-content {
+          & .section-title {
+            font-size: 1.5rem;
+            margin: 1.7rem;
+          }
+
+          & p {
+            font-size: 0.7rem;
+          }
+          & .stats {
+
+            & .stat-item {
+
+                & h3 {
+
+                }
+
+                & p {
+
+                }
+            }
+          }
+        }
+
+        & .about-image {
+
+            & img {
+
+            }
+        }
+      }
+    }
+
+    /* CTA Section */
+    & .cta {
+      padding: 1.5rem 0 1.5rem 0;
+        & h2 {
+          font-size: 1.5rem;
+        }
+
+        & p {
+          font-size: 0.8rem;
+        }
+    }   //end of host
+  }
+}
+}
+
+@media (max-width: 650px) {
+:host {
+  & .home-component-wrapper {
+
+
+    & .container {
+
+    }
+
+    & h1, h2, h3, h4 {
+
+    }
+
+    & h1 {
+
+    }
+
+    & h2 {
+
+    }
+
+    & h3 {
+
+    }
+
+    & p {
+
+    }
+
+    & img {
+
+    }
+
+    & a {
+
+    }
+
+    & ul {
+
+    }
+
+    & .btn-primary {
+
+    }
+
+    & .btn-primary:hover {
+
+    }
+
+    & .btn-outline {
+
+    }
+
+    & .btn-outline:hover {
+
+    }
+
+    & .section-title {
+
+        & span {
+
+        }
+    }
+
+    & .section-title::after {
+
+    }
+
+    /* Hero Section */
+    & .hero {
+
+
+      & .container {
+
+        & .hero-content {
+
+          & h1 {
+            font-size: 1.5rem;
+            & span {
+
+            }
+          }
+
+          & p {
+
+          }
+
+        }
+
+        & .hero-form {
+          padding: 15px;
+          width: fit-content;
+            & .welcome-ctnr {
+              & h3 {
+
+              & span {
+
+              }
+              }
+            }
+
+            & h3 {
+
+              & span {
+
+              }
+            }
+            & form {
+              & .signup-input-ctnr {
+                & label {
+                  & .home-signup-icon {
+                    transform: scale(0.7)
+                  }
+                }
+                & input {
+                  width: 8rem;
+                  height: fit-content;
+                  &:focus {
+
+                  }
+                }
+              }
+              & button {
+
+              }
+
+              & .disabled {
+
+                &:active {
+
+                }
+              }
+            }
+        }
+
+        & .hero-img-ctnr {
+
+        }
+      }
+    }
+
+
+
+    /* Features Section */
+    & .features {
+
+      & .container {
+        & .features-section-title {
+          margin: 0;
+        }
+      }
+      & .features-grid {
+        & .feature-card {
+
+          & h3 {
+
+          }
+          & p {
+
+          }
+          &:hover {
+
+          }
+
+          & .feature-icon {
+
+          }
+        }
+      }
+    }
+
+
+    /* Testimonials Section */
+    & .testimonials {
+
+      & .slider-ctnr {
+
+/*         & .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+
+          & .testimonial {
+              display: none;
+              text-align: center;
+              padding: 0 20px;
+              animation: fadeIn 0.5s ease;
+            & .testimonial-content {
+              background-color: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: $box-shadow;
+
+              & h4 {
+                color: $primary-color;
+              }
+
+              & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid $primary-light;
+              }
+
+              & p {
+                font-style: italic;
+                margin-bottom: 20px;
+                position: relative;
+                &::before, &::after {
+                  content: '"';
+                  font-size: 2rem;
+                  color: $primary-light;
+                  opacity: 0.5;
+                }
+              }
+
+              & span {
+                  color: $gray-dark;
+                  font-size: 0.9rem;
+              }
+            }
+          }
+
+          & .testimonial.active {
+            display: block;
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+        } */
+      }
+    }
+
+    /* About Section */
+    & .about {
+
+      & .container {
+
+        & .about-content {
+          & .section-title {
+
+          }
+
+          & p {
+
+          }
+          & .stats {
+
+            & .stat-item {
+
+                & h3 {
+
+                }
+
+                & p {
+
+                }
+            }
+          }
+        }
+
+        & .about-image {
+
+            & img {
+
+            }
+        }
+      }
+    }
+
+    /* CTA Section */
+    & .cta {
+
+        & h2 {
+
+        }
+
+        & p {
+
+        }
+    }   //end of host
+  }
+}
+}
+
+@media (max-width: 600px) {
+:host {
+  & .home-component-wrapper {
+
+
+    & .container {
+
+    }
+
+    & h1, h2, h3, h4 {
+
+    }
+
+    & h1 {
+
+    }
+
+    & h2 {
+
+    }
+
+    & h3 {
+
+    }
+
+    & p {
+
+    }
+
+    & img {
+
+    }
+
+    & a {
+
+    }
+
+    & ul {
+
+    }
+
+    & .btn-primary {
+
+    }
+
+    & .btn-primary:hover {
+
+    }
+
+    & .btn-outline {
+
+    }
+
+    & .btn-outline:hover {
+
+    }
+
+    & .section-title {
+
+        & span {
+
+        }
+    }
+
+    & .section-title::after {
+
+    }
+
+    /* Hero Section */
+    & .hero {
+      padding: 2rem;
+      & .container {
+
+        & .hero-content {
+
+          & h1 {
+
+            & span {
+
+            }
+          }
+
+          & p {
+
+          }
+
+        }
+
+        & .hero-form {
+
+            & .welcome-ctnr {
+              & h3 {
+
+              & span {
+
+              }
+              }
+            }
+
+            & h3 {
+
+              & span {
+
+              }
+            }
+            & form {
+              & .signup-input-ctnr {
+                & label {
+                  & .home-signup-icon {
+
+                  }
+                }
+                & input {
+
+                  &:focus {
+
+                  }
+                }
+              }
+              & button {
+
+              }
+
+              & .disabled {
+
+                &:active {
+
+                }
+              }
+            }
+        }
+
+        & .hero-img-ctnr {
+
+        }
+      }
+    }
+
+
+
+    /* Features Section */
+    & .features {
+            padding: 2rem;
+      & .container {
+        & .features-section-title {
+          font-size: 1.5rem;
+        }
+      }
+      & .features-grid {
+        grid-template-columns: repeat(2, calc(30vw));
+        & .feature-card {
+
+          & h3 {
+
+          }
+          & p {
+
+          }
+          &:hover {
+
+          }
+
+          & .feature-icon {
+            margin-bottom: 0.5rem;
+
+          }
+        }
+      }
+    }
+
+
+    /* Testimonials Section */
+    & .testimonials {
+
+      & .slider-ctnr {
+
+/*         & .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+
+          & .testimonial {
+              display: none;
+              text-align: center;
+              padding: 0 20px;
+              animation: fadeIn 0.5s ease;
+            & .testimonial-content {
+              background-color: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: $box-shadow;
+
+              & h4 {
+                color: $primary-color;
+              }
+
+              & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid $primary-light;
+              }
+
+              & p {
+                font-style: italic;
+                margin-bottom: 20px;
+                position: relative;
+                &::before, &::after {
+                  content: '"';
+                  font-size: 2rem;
+                  color: $primary-light;
+                  opacity: 0.5;
+                }
+              }
+
+              & span {
+                  color: $gray-dark;
+                  font-size: 0.9rem;
+              }
+            }
+          }
+
+          & .testimonial.active {
+            display: block;
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+        } */
+      }
+    }
+
+    /* About Section */
+    & .about {
+      padding: 2rem;
+      & .container {
+
+        & .about-content {
+          & .section-title {
+            margin: 1.5rem;
+          }
+
+          & p {
+            line-height: 14px;
+          }
+          & .stats {
+
+            & .stat-item {
+
+                & h3 {
+
+                }
+
+                & p {
+
+                }
+            }
+          }
+        }
+
+        & .about-image {
+          display: none;
+            & img {
+
+            }
+        }
+      }
+    }
+
+    /* CTA Section */
+    & .cta {
+
+        & h2 {
+
+        }
+
+        & p {
+
+        }
+    }   //end of host
+  }
+}
+}
+
+@media (max-width: 550px) {
+:host {
+  & .home-component-wrapper {
+
+
+    & .container {
+
+    }
+
+    & h1, h2, h3, h4 {
+
+    }
+
+    & h1 {
+
+    }
+
+    & h2 {
+
+    }
+
+    & h3 {
+
+    }
+
+    & p {
+
+    }
+
+    & img {
+
+    }
+
+    & a {
+
+    }
+
+    & ul {
+
+    }
+
+    & .btn-primary {
+
+    }
+
+    & .btn-primary:hover {
+
+    }
+
+    & .btn-outline {
+
+    }
+
+    & .btn-outline:hover {
+
+    }
+
+    & .section-title {
+
+        & span {
+
+        }
+    }
+
+    & .section-title::after {
+
+    }
+
+    /* Hero Section */
+    & .hero {
+      padding: 2rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      & .container {
+        min-height: fit-content;
+        & .hero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          flex: 100%;
+          & h1 {
+
+            & span {
+
+            }
+          }
+
+          & p {
+
+          }
+
+        }
+
+        & .hero-form {
+          display: none;
+            & .welcome-ctnr {
+              & h3 {
+
+              & span {
+
+              }
+              }
+            }
+
+            & h3 {
+
+              & span {
+
+              }
+            }
+            & form {
+              & .signup-input-ctnr {
+                & label {
+                  & .home-signup-icon {
+
+                  }
+                }
+                & input {
+
+                  &:focus {
+
+                  }
+                }
+              }
+              & button {
+
+              }
+
+              & .disabled {
+
+                &:active {
+
+                }
+              }
+            }
+        }
+
+        & .hero-img-ctnr {
+
+        }
+      }
+    }
+
+
+
+    /* Features Section */
+    & .features {
+            padding: 2rem;
+      & .container {
+        width: fit-content;
+        & .features-section-title {
+          font-size: 1.5rem;
+        }
+      }
+      & .features-grid {
+        grid-template-columns: repeat(2, calc(30vw));
+        & .feature-card {
+
+          & h3 {
+
+          }
+          & p {
+
+          }
+          &:hover {
+
+          }
+
+          & .feature-icon {
+            margin-bottom: 0.5rem;
+
+          }
+        }
+      }
+    }
+
+
+    /* Testimonials Section */
+    & .testimonials {
+
+      & .slider-ctnr {
+
+/*         & .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+
+          & .testimonial {
+              display: none;
+              text-align: center;
+              padding: 0 20px;
+              animation: fadeIn 0.5s ease;
+            & .testimonial-content {
+              background-color: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: $box-shadow;
+
+              & h4 {
+                color: $primary-color;
+              }
+
+              & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid $primary-light;
+              }
+
+              & p {
+                font-style: italic;
+                margin-bottom: 20px;
+                position: relative;
+                &::before, &::after {
+                  content: '"';
+                  font-size: 2rem;
+                  color: $primary-light;
+                  opacity: 0.5;
+                }
+              }
+
+              & span {
+                  color: $gray-dark;
+                  font-size: 0.9rem;
+              }
+            }
+          }
+
+          & .testimonial.active {
+            display: block;
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+        } */
+      }
+    }
+
+    /* About Section */
+    & .about {
+      padding: 2rem;
+      & .container {
+
+        & .about-content {
+          & .section-title {
+            margin: 1.5rem;
+          }
+
+          & p {
+            line-height: 14px;
+          }
+          & .stats {
+
+            & .stat-item {
+
+                & h3 {
+
+                }
+
+                & p {
+
+                }
+            }
+          }
+        }
+
+        & .about-image {
+          display: none;
+            & img {
+
+            }
+        }
+      }
+    }
+
+    /* CTA Section */
+    & .cta {
+
+        & h2 {
+
+        }
+
+        & p {
+
+        }
+    }   //end of host
+  }
+}
+}
+
+@media (max-width: 500px) {
+:host {
+  & .home-component-wrapper {
+
+
+    & .container {
+
+    }
+
+    & h1, h2, h3, h4 {
+
+    }
+
+    & h1 {
+
+    }
+
+    & h2 {
+
+    }
+
+    & h3 {
+
+    }
+
+    & p {
+
+    }
+
+    & img {
+
+    }
+
+    & a {
+
+    }
+
+    & ul {
+
+    }
+
+    & .btn-primary {
+
+    }
+
+    & .btn-primary:hover {
+
+    }
+
+    & .btn-outline {
+
+    }
+
+    & .btn-outline:hover {
+
+    }
+
+    & .section-title {
+
+        & span {
+
+        }
+    }
+
+    & .section-title::after {
+
+    }
+
+    /* Hero Section */
+    & .hero {
+
+      & .container {
+
+        & .hero-content {
+
+          & h1 {
+
+            & span {
+
+            }
+          }
+
+          & p {
+
+          }
+
+        }
+
+        & .hero-form {
+
+            & .welcome-ctnr {
+              & h3 {
+
+              & span {
+
+              }
+              }
+            }
+
+            & h3 {
+
+              & span {
+
+              }
+            }
+            & form {
+              & .signup-input-ctnr {
+                & label {
+                  & .home-signup-icon {
+
+                  }
+                }
+                & input {
+
+                  &:focus {
+
+                  }
+                }
+              }
+              & button {
+
+              }
+
+              & .disabled {
+
+                &:active {
+
+                }
+              }
+            }
+        }
+
+        & .hero-img-ctnr {
+
+        }
+      }
+    }
+
+
+
+    /* Features Section */
+    & .features {
+
+      & .container {
+        & .features-section-title {
+
+        }
+      }
+      & .features-grid {
+        grid-template-columns: repeat(1, 40vw);
+        & .feature-card {
+
+          & h3 {
+
+          }
+          & p {
+
+          }
+          &:hover {
+
+          }
+
+          & .feature-icon {
+
+
+          }
+        }
+      }
+    }
+
+
+    /* Testimonials Section */
+    & .testimonials {
+
+      & .slider-ctnr {
+
+/*         & .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+
+          & .testimonial {
+              display: none;
+              text-align: center;
+              padding: 0 20px;
+              animation: fadeIn 0.5s ease;
+            & .testimonial-content {
+              background-color: white;
+              padding: 40px;
+              border-radius: 10px;
+              box-shadow: $box-shadow;
+
+              & h4 {
+                color: $primary-color;
+              }
+
+              & img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 5px solid $primary-light;
+              }
+
+              & p {
+                font-style: italic;
+                margin-bottom: 20px;
+                position: relative;
+                &::before, &::after {
+                  content: '"';
+                  font-size: 2rem;
+                  color: $primary-light;
+                  opacity: 0.5;
+                }
+              }
+
+              & span {
+                  color: $gray-dark;
+                  font-size: 0.9rem;
+              }
+            }
+          }
+
+          & .testimonial.active {
+            display: block;
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+        } */
+      }
+    }
+
+    /* About Section */
+    & .about {
+
+      & .container {
+
+        & .about-content {
+          & .section-title {
+
+          }
+
+          & p {
+
+          }
+          & .stats {
+
+            & .stat-item {
+
+                & h3 {
+
+                }
+
+                & p {
+
+                }
+            }
+          }
+        }
+
+        & .about-image {
+
+            & img {
+
+            }
+        }
+      }
+    }
+
+    /* CTA Section */
+    & .cta {
+
+        & h2 {
+
+        }
+
+        & p {
+
+        }
+    }   //end of host
+  }
+}
 }

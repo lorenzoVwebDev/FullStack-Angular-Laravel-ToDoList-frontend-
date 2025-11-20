@@ -9,6 +9,7 @@ import { AuthService } from 'app/services/auth.service';
 import { JwtService } from 'app/services/jwt.service';
 //directives
 import { SubmitdisabledDirective } from 'app/directives/submitdisabled.directive';
+import { environment } from 'environments/environment.development';
 
 const validateFile = (control: AbstractControl): ValidationErrors | null => {
   const file: File | null | undefined = control.value
@@ -33,7 +34,7 @@ export class SignupComponent {
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   pwrRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
   file: File | undefined = undefined;
-  imgPath: String = "https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png"
+  imgPath: String = `${environment.apiUrl}assets/lcp/home-lcp.png`
   constructor(public jwtApi: JwtService, public authApi: AuthService, public router: Router) {}
 
   onImagePicker(event: Event) {
@@ -51,7 +52,7 @@ export class SignupComponent {
     email: new FormControl("", [Validators.pattern(this.emailRegex), Validators.required]),
     password: new FormControl("", [Validators.pattern(this.pwrRegex), Validators.required]),
     confirmPassword: new FormControl("", [Validators.pattern(this.pwrRegex), Validators.required]),
-    avatar: new FormControl<File | undefined>(undefined, validateFile) 
+    avatar: new FormControl<File | undefined>(undefined, validateFile)
   })
 
   signUp() {
@@ -60,7 +61,7 @@ export class SignupComponent {
     const password = this.signUpFormGroup.value.password
     const confirmPassword = this.signUpFormGroup.value.confirmPassword
     const avatar = this.file
-    if (!this.signUpFormGroup.valid) return 
+    if (!this.signUpFormGroup.valid) return
 
     if (password === confirmPassword) {
     if (!username || !password || !email) return

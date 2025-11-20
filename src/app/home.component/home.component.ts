@@ -79,7 +79,7 @@ export class HomeComponent implements AfterViewInit {
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   pwrRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
   file: File | undefined = undefined;
-  imgPath: String = "https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png"
+  imgPath: String = `${environment.apiUrl}assets/lcp/home-lcp.png`
   //Platform
   platformId = inject(PLATFORM_ID);
 

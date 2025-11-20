@@ -42,7 +42,7 @@ export class ChangepwrComponent {
   notEqualPasswords: WritableSignal<boolean> = signal<boolean>(true);
   usernameAndEmailRegex: RegExp = /^(?!.*[<>\"'\/`&])(?:[a-zA-Z0-9._-]{3,32}|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
   pwrRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
-  imgPath: String = "https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png"
+  imgPath: String = `${environment.apiUrl}assets/lcp/home-lcp.png`
   constructor(public jwtApi: JwtService, public authApi: AuthService, public router: Router) {}
 
   changepwrFormGroup = new FormGroup({
@@ -98,10 +98,10 @@ export class ChangepwrComponent {
           if (res.status === 201) {
             const accessToken = res.headers.get(environment.tokenHeader)
             if (!accessToken) this.router.navigate(["/error500"])
-            else {  
-              this.jwtApi.setAccessToken = accessToken 
+            else {
+              this.jwtApi.setAccessToken = accessToken
               this.changePwr()
-            } 
+            }
           } else {
             this.pwrChanged.set(true)
             this.jwtApi.deleteRefreshToken()
@@ -109,7 +109,7 @@ export class ChangepwrComponent {
             setTimeout(() => {
               this.router.navigate(["/signin"])
               this.pwrChanged.set(false)
-              
+
             }, 2000)
           }
         }, (err: HttpErrorResponse) => {
@@ -121,7 +121,7 @@ export class ChangepwrComponent {
               break
             }
           case (401): {
-            const response = err.error?.response; 
+            const response = err.error?.response;
           if (response === "jwt-unauthorized") {
             this.pwrChanged.set(false)
             this.jwtApi.setAccessToken = "";
@@ -153,7 +153,7 @@ export class ChangepwrComponent {
         }
         default: {
           this.router.navigate(["/error500"])
-        } 
+        }
           }
         })
     } else {

@@ -15,23 +15,23 @@
                   <h3><span>S</span>ign <span>U</span>p</h3>
                   <form [formGroup]="signUpFormGroup" (submit)="signUp()">
                   <div class="signup-input-ctnr">
-                      <label for=""><mat-icon>person</mat-icon></label>
+                      <label for="username"><mat-icon class="home-signup-icon">person</mat-icon></label>
                       <input type="text" name="username" id="username" formControlName="username" placeholder="Insert Username"/>
                   </div>
                   <div class="signup-input-ctnr">
-                      <label for="email"><mat-icon>mail</mat-icon></label>
+                      <label for="email"><mat-icon class="home-signup-icon">mail</mat-icon></label>
                       <input type="email" name="email" id="email" formControlName="email" placeholder="Insert Email"/>
                   </div>
                   <div class="signup-input-ctnr">
-                      <label for="password"><mat-icon>key</mat-icon></label>
+                      <label for="password"><mat-icon class="home-signup-icon">key</mat-icon></label>
                       <input type="password" name="password" id="password" formControlName="password" placeholder="Insert Password"/>
                   </div>
                   <div class="signup-input-ctnr">
-                      <label for="confirmPassword"><mat-icon>done_outline</mat-icon></label>
+                      <label for="confirmPassword"><mat-icon class="home-signup-icon">done_outline</mat-icon></label>
                       <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword" placeholder="Confrim Password"/>
                   </div>
                   <div class="signup-input-ctnr">
-                      <label for="avatar"><mat-icon>avatar</mat-icon></label>
+                      <label for="avatar"><mat-icon class="home-signup-icon">avatar</mat-icon></label>
                       <input type="file" name="avatar" id="avatar" formControlName="avatar" placeholder="avatar"/>
                   </div>
                   <button type="submit" [submitdisabledDirective]="signUpFormGroup.valid">Sign Up</button>
@@ -67,7 +67,7 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title"><span>T</span>o do list <span>F</span>ull stack <span>F</span>rameworks</h2>
+            <h2 class="features-section-title"><span>T</span>o do list <span>F</span>ull stack <span>F</span>rameworks</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -131,7 +131,7 @@
                 </div> -->
             </div>
             <div class="about-image">
-                <img src="https://i.ibb.co/TMWXdR3j/Gemini-Generated-Image-19exxp19exxp19ex.png" alt="Happy couple">
+                <img [src]="imgPath" alt="Happy couple">
             </div>
         </div>
     </section>

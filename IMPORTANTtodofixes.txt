@@ -1,1 +1,0 @@
-(check icon fetching on production)

@@ -4,7 +4,9 @@
   display: flex;
   flex-direction: column;
   min-height: 80vh;
-
+  & .filters-button {
+    display: none;
+  }
   & .todolist-upper-ctnr {
     & .toolbar-ctnr {
       position: relative;
@@ -71,28 +73,297 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: top;
+      justify-content: center;
       position: relative;
       & .mat-mdc-card-title-group {
         justify-content: center;
       }
       & .mat-mdc-card-content {
-        min-height: 40%;
+        padding-right: 5%;
+        padding-left: 5%;
+        height: 40%;
         width: 100%;
         & .mat-mdc-card-header {
+          padding: unset;
+          padding: 0 !important;
+          padding-top: 0 !important;
           font-weight: bold;
           min-height: 20%;
         }
         & .mat-card-content-ctnr {
-          overflow-y: scroll;
-          padding: 0.2rem 1rem 1rem 1rem;
+overflow-y: scroll;
+          padding-left: 10%;
+          padding-right: 10%;
+          margin: 0;
+          padding: 0;
           min-width: 100%;
-          min-height: 80%;
+          max-width: 100%;
+word-break: break-all;
+          inline-size: 100%;
+          height: 80%;
           max-height: 80%;
         }
+
         & .expiration-date {
           position: absolute;
           top: 2%;
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+        padding: 0;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+
+        & .search-bar-ctnr {
+
+          & input {
+
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+    grid-template-columns: repeat(5, 17vw);
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+        width: 2rem;
+        height: 1.75rem;
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 1000px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+
+        & .search-bar-ctnr {
+
+          & input {
+
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+    grid-template-rows: repeat(2);
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+        padding: 0;
+        font-size: 0.7rem;
+        height: 1rem;
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+        gap: 0.4rem;
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 750px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+
+        & .search-bar-ctnr {
+
+          & input {
+            width: 5rem;
+
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+
+        & .toolbar-buttons {
+
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 800px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+
+        & .search-bar-ctnr {
+
+          & input {
+
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+    grid-template-columns: repeat(5, 17vw);
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+        font-size: 0.75rem;
+          width: 3rem !important;
+          height: 1.5rem !important;
+          min-width: unset!important;
+      }
+      & .mat-mdc-card-title-group {
+        & .mat-mdc-card-title {
+          font-size: 0.9rem;
+        }
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
         }
       }
       & .mat-mdc-card-actions, .mdc-card__actions {
@@ -100,4 +371,272 @@
       }
     }
   }
+}
+}
+
+@media (max-width: 750px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+
+        & .search-bar-ctnr {
+          background-color: $neon-orange;
+          & input {
+            width: 5rem;
+
+            &:focus {
+
+            }
+            &::placeholder {
+              font-size: 3rem;
+              color: $neon-orange;
+            }
+          }
+          & button {
+
+          }
+        }
+
+        & .toolbar-buttons {
+          width: 5rem;
+          font-size: 0.75rem;
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 750px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+
+        & .search-bar-ctnr {
+          & input {
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+
+        & .toolbar-buttons {
+
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(5, 18%);
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+
+        gap: 0.2rem;
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 550px) {
+:host {
+
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+          gap: 0.5rem;
+        & .search-bar-ctnr {
+
+          & input {
+            width: 3rem;
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+
+        & .toolbar-buttons {
+
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+      }
+    }
+  }
+}
+}
+
+@media (max-width: 500px) {
+:host {
+  .filters-component {
+    display: none;
+  }
+
+  .filters-button {
+    display: flex;
+  }
+  & .todolist-upper-ctnr {
+    & .toolbar-ctnr {
+
+      & .toolbar-ctnr-left {
+          gap: 0.5rem;
+        & .search-bar-ctnr {
+
+          & input {
+            width: 3rem;
+            &:focus {
+
+            }
+            &::placeholder {
+
+            }
+          }
+          & button {
+
+          }
+        }
+
+        & .toolbar-buttons {
+
+        }
+      }
+      & .toolbar-ctnr-right {
+
+      }
+    }
+  }
+  & .tasks-loading-container {
+
+  }
+  & .tasks-container {
+
+    & .mat-mdc-card, .mdc-card, .mat-mdc-card-outlined, .mdc-card--outlined {
+      & .task-action-button {
+
+      }
+      & .mat-mdc-card-title-group {
+
+      }
+      & .mat-mdc-card-content {
+
+        & .mat-mdc-card-header {
+
+        }
+        & .mat-card-content-ctnr {
+
+        }
+        & .expiration-date {
+
+        }
+      }
+      & .mat-mdc-card-actions, .mdc-card__actions {
+      }
+    }
+  }
+}
 }

@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FilterComponent } from './filters.component/filters.component';
 import { AddtaskModal } from 'app/modals/addtask.modal/addtask.modal';
 import { EditdeleteModal } from 'app/modals/editdelete.modal/editdelete.modal';
+import { FiltersModal } from 'app/modals/filters.modal/filters.modal';
 //services
 import { JwtService } from 'app/services/jwt.service';
 import { TaskService } from 'app/services/task.service';
@@ -249,6 +250,12 @@ export class TodolistComponent implements OnInit {
       if (res === "true") {
         this.firstPageTasks()
       }
+    })
+  }
+
+  openFiltersModal() {
+    this.dialog.open(FiltersModal).afterClosed().subscribe(data => {
+      this.filterTask(data)
     })
   }
 

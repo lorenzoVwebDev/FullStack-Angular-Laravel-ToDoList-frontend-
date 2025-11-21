@@ -12,10 +12,11 @@
       & .date-input-ctnr {
         display: flex;
         gap: 1rem;
+
       & .mat-calendar {
         z-index: 9999 !important;
       }
-      
+
       }
 
       & .selectors-ctnr {
@@ -38,4 +39,180 @@
     }
 
   }
+}
+
+@media (max-width: 1000px) {
+:host {
+  & .mat-expansion-panel {
+    & .mat-mdc-card {
+
+      & form {
+      gap: 0.5rem;
+      & .date-input-ctnr {
+        display: flex;
+        justify-content: space-between;
+        & .date-range-icon {
+          display: none !important;
+        }
+      & .mat-calendar {
+      }
+
+      & .date-before {
+        width: 7rem;
+        & span {
+          font-size: 0.7rem;
+        }
+      }
+
+      & .date-after {
+        width: 7rem;
+        & span {
+          font-size: 0.7rem;
+        }
+      }
+      }
+
+      & .selectors-ctnr {
+        padding: 0;
+        & .select-label-ctnr {
+          & label {
+           font-size: 0.8rem;
+          }
+          & select {
+            width: 5rem;
+            font-size: 1rem;
+            & option {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+      & .submit-container {
+        & button {
+        font-size: 0.65rem !important;
+        height: 1.5rem;
+        width: 5rem;
+        min-width: unset !important;
+        }
+      }
+    }
+    }
+
+  }
+}
+}
+
+@media (max-width: 750px) {
+:host {
+  & .mat-expansion-panel {
+    & .mat-mdc-card {
+
+      & form {
+
+      & .date-input-ctnr {
+
+        & .date-range-icon {
+
+        }
+      & .mat-calendar {
+      }
+
+      & .date-before {
+
+        & span {
+
+        }
+      }
+
+      & .date-after {
+
+        & span {
+
+        }
+      }
+      }
+
+      & .selectors-ctnr {
+
+        & .select-label-ctnr {
+          & label {
+
+          }
+          & select {
+
+            & option {
+
+            }
+          }
+        }
+      }
+      & .submit-container {
+        & button {
+
+        }
+      }
+    }
+    }
+
+  }
+}
+}
+
+@media (max-width: 650px) {
+:host {
+  & .mat-expansion-panel {
+    & .mat-mdc-card {
+
+      & form {
+
+      & .date-input-ctnr {
+        & .date-range-icon {
+
+        }
+      & .mat-calendar {
+      }
+
+      & .date-before {
+        width: 4rem;
+        & span {
+          content: url("../../../../../../public/date.svg");
+          width: 2rem;
+          text-indent: -9999px;
+        }
+      }
+
+      & .date-after {
+        width: 4rem;
+        & span {
+          content: url("../../../../../../public/date.svg");
+          width: 2rem;
+          text-indent: -9999px;
+        }
+      }
+      }
+
+      & .selectors-ctnr {
+
+        & .select-label-ctnr {
+          & label {
+            font-size: 0.5rem;
+          }
+          & select {
+            width: 4rem;
+            & option {
+              font-size: 0.5rem;
+            }
+          }
+        }
+      }
+      & .submit-container {
+        & button {
+
+        }
+      }
+    }
+    }
+
+  }
+}
 }

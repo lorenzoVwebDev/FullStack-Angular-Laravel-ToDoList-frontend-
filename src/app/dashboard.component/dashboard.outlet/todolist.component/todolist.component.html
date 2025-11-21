@@ -9,13 +9,14 @@
           "><mat-icon>search</mat-icon></button>
         </div>
         @if (isArrayFiltered() || isArraySearched()) {
-          <button matButton="filled" (click)="removeFilters()">Remove FIlters</button>
+          <button matButton="filled" (click)="removeFilters()" class="toolbar-buttons">Reset</button>
         } @else {
-          <button matButton="filled" (click)="openAddTaskModal()">Add Task</button>
+          <button matButton="filled" (click)="openAddTaskModal()" class="toolbar-buttons">Add Task</button>
         }
       </div>
       <div class="toolbar-ctnr-right">
-        <filters-component [filtersActivated]="isArrayFiltered()" [page]="pageIndex" [limit]="pageSize" (emitFilteredArray)="filterTask($event)"/>
+        <filters-component [filtersActivated]="isArrayFiltered()" [page]="pageIndex" [limit]="pageSize" (emitFilteredArray)="filterTask($event)" class="filters-component"/>
+        <button matButton="outlined" class="filters-button" (click)="openFiltersModal()">Filters</button>
       </div>
     </div>
   </mat-toolbar>
@@ -45,18 +46,18 @@
             {{task.label}}
           </mat-card-title>
         </mat-card-title-group>
-        <mat-card-content>
+        <mat-card-content class="card-content">
           <mat-card-header>Description:</mat-card-header>
-          <div class="mat-card-content-ctnr">
+          <p class="mat-card-content-ctnr">
           {{task.description}}
-          </div>
+          </p>
           @if (task.dueDate) {
             <div class="expiration-date">exp: {{timeStampToDate(task.dueDate) | date:'shortDate'}}</div>
           }
         </mat-card-content>
         <mat-card-actions>
-          <button matButton="outlined" (click)="openEditOrDeleteModal('edit', task.id)">Edit</button>
-          <button matButton="outlined" (click)="openEditOrDeleteModal('delete', task.id)">Delete</button>
+          <button matButton="outlined" (click)="openEditOrDeleteModal('edit', task.id)" class="task-action-button">Edit</button>
+          <button matButton="outlined" (click)="openEditOrDeleteModal('delete', task.id)" class="task-action-button">Delete</button>
         </mat-card-actions>
       </mat-card>
     }

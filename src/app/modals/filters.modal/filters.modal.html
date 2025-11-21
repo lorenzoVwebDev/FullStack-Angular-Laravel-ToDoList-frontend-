@@ -1,10 +1,4 @@
-<mat-accordion>
-  <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" [(expanded)]="panelOpenState" #expansionpanel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Filters
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+
       <mat-card appearance="outlined">
         <form [formGroup]="filtersForm" (submit)="applyFilters()">
           <div class="date-input-ctnr">
@@ -51,9 +45,7 @@
             </div>
           </div>
           <div class="submit-container">
-            <button type="submit" matButton="filled" (click)="expansionpanel.close()">Apply Filters</button>
+            <button type="submit" matButton="filled" (click)="applyFilters()">Apply Filters</button>
           </div>
         </form>
       </mat-card>
-  </mat-expansion-panel>
-</mat-accordion>

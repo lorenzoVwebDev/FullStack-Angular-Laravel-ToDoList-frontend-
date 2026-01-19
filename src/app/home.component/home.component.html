@@ -11,7 +11,15 @@
             @defer (on idle) {
             @if (!signedIn()) {
             <div class="hero-form">
-                @if (!isSignUpOk()) {
+                @if (isSignUpOk()) {
+                  <div class="welcome-ctnr">
+                    <h3>Check Your Email To Complete The Registration!</h3>
+                  </div>
+                } @else if (signUpRequested()) {
+                  <div class="welcome-ctnr">
+                    <mat-spinner></mat-spinner>
+                  </div>
+                } @else {
                   <h3><span>S</span>ign <span>U</span>p</h3>
                   <form [formGroup]="signUpFormGroup" (submit)="signUp()">
                   <div class="signup-input-ctnr">
@@ -41,10 +49,6 @@
                         color: red;
                     ">Username or mail exists yet! Please choose another one!</p>
                   }
-                } @else {
-                  <div class="welcome-ctnr">
-                    <h3>You're Welcome In <span>T</span>o <span>D</span>o <span>L</span>ist <span>F</span>ullstack</h3>
-                  </div>
                 }
             </div>
             } @else {

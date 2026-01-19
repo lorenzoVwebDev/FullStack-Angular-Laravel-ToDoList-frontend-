@@ -1,6 +1,10 @@
 @if (isSignUpOk()) {
   <div class="signup-left">
-    <h1>You're Welcome In <span>T</span>o <span>D</span>o <span>L</span>ist <span>F</span>ullstack</h1>
+    <h1>Check Your Email To Complete Registration!</h1>
+  </div>
+} @else if (signUpRequested()) {
+  <div class="signup-left">
+      <mat-spinner></mat-spinner>
   </div>
 } @else {
   <div class="signup-left">

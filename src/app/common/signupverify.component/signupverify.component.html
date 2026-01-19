@@ -1,0 +1,37 @@
+<img [src]="imgPath" alt="lcp"/>
+@if (registrationApproved()) {
+  <div class="main-container">
+    <h1>Your Registration Is Completed!</h1>
+    <h2>Click On The Button Below To Sign In</h2>
+    <button (click)="signIn()">Sign In</button>
+  </div>
+} @else if (invalidToken()) {
+  <div class="main-container">
+    <h1>User Not Found</h1>
+    <h2>Sign Up To Join Us</h2>
+    <button (click)="signUp()">Sign Up</button>
+  </div>
+} @else if (tokenExpired()) {
+  @if (requestedToken()) {
+    @if(approvedToken()) {
+    <div class="main-container">
+      <h1>Token Requested! Check your email to confirm your registration!</h1>
+    </div>
+    } @else {
+      <div class="main-container">
+      <mat-spinner></mat-spinner>
+      </div>
+    }
+
+  } @else {
+    <div class="main-container">
+      <h1>Token Expired!</h1>
+      <h2>Click on the button below to request another one!</h2>
+      <button (click)="requestNewToken()">New Token</button>
+    </div>
+  }
+} @else {
+   <div class="main-container">
+    <mat-spinner></mat-spinner>
+  </div>
+}

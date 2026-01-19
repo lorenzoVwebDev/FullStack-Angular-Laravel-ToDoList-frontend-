@@ -1,5 +1,5 @@
 import {Injectable, signal, WritableSignal} from "@angular/core"
-import {HttpClient, HttpHeaders} from "@angular/common/http"
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http"
 import { JwtService } from "./jwt.service"
 import { environment}  from "environments/environment.development"
 import { ChangePwrType } from "types/types"
@@ -41,6 +41,20 @@ export class AuthService {
     })
   }
 
+  verifySignUp(token: string) {
+    const params = new HttpParams({
+      fromObject: {
+        "verifytoken": token
+      }
+    })
+
+    return this.http.get(`${environment.apiUrl}authentication/verifytoken`, {
+      observe: "response",
+      params,
+      withCredentials: true
+    })
+  }
+
   logOut() {
     const headers = new HttpHeaders().append(`${environment.tokenHeader}`, `Bearer ${this.jwtApi.accessToken}`)
 
@@ -65,6 +79,20 @@ export class AuthService {
     return this.http.get(`${environment.apiUrl}refreshtoken`, {
       withCredentials: true,
       observe: "response"
+    })
+  }
+
+  getNewVerificationToken(verifyToken: string) {
+    const params = new HttpParams({
+      fromObject: {
+        "verifytoken": verifyToken
+      }
+    })
+
+    return this.http.get(`${environment.apiUrl}authentication/newverificationtoken`, {
+      observe: "response",
+      params,
+      withCredentials: true
     })
   }
 }

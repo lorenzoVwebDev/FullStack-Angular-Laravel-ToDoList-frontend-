@@ -23,9 +23,12 @@ export const serverRoutes: ServerRoute[] = [
     path: "signup",
     renderMode: RenderMode.Client
   },{
-    path: "changepwr", 
+    path: "changepwr",
     renderMode: RenderMode.Client
   }, {
+    path: "signupverify",
+    renderMode: RenderMode.Client
+  },{
     path: "error500",
     renderMode: RenderMode.Prerender
   }

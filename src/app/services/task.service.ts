@@ -48,13 +48,13 @@ export class TaskService {
     taskDone?: "Y" | "N",
     dueDate?: number
   }) {
-    let headers = new HttpHeaders().append(environment.tokenHeader, `Bearer ${this.jwtApi.accessToken}`)
-/*     console.log(newTask) */
+    let headers = new HttpHeaders().append(environment.tokenHeader, `Bearer ${this.jwtApi.accessToken}`);
+
     return this.http.put(`${environment.apiUrl}tasks`, newTask, {
       headers,
       observe: "response",
       withCredentials: true
-    })
+    });
   }
 
   deleteTask(id: string) {
@@ -112,7 +112,7 @@ export class TaskService {
         "limit": limit.toString()
       }
     })
-    console.log(addedBefore);
+
     return this.http.get(`${environment.apiUrl}tasks/filtertasks`, {
       observe: "response",
       headers,

@@ -63,7 +63,7 @@ export class TodolistComponent implements OnInit {
         this.router.navigate(["/signin"])
         return
       }
-      this.taskApi.getTasks(_user_id, this.pageIndex, this.pageSize).subscribe(res => {
+      this.taskApi.getTasks(_user_id, this.pageIndex + 1, this.pageSize).subscribe(res => {
         if (res.status == 201) {
           const accessToken = res.headers.get(environment.tokenHeader);
           if (!accessToken) return

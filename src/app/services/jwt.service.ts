@@ -76,7 +76,7 @@ export class JwtService {
     const expirationTime = this.getExpirationTime();
     if (!expirationTime) return undefined;
     const currentUnix = dayjs().unix();
-    currentUnix > Number(expirationTime) ? 'expired' : "not-expired"
+    return currentUnix > Number(expirationTime) ? 'expired' : "not-expired"
   }
 
   refreshTokenInPlace() {

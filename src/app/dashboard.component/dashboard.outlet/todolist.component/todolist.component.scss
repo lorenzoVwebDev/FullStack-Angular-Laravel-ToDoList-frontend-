@@ -444,7 +444,7 @@ word-break: break-all;
 
 @media (max-width: 750px) {
 :host {
-
+  min-height: 200vh;
   & .todolist-upper-ctnr {
     & .toolbar-ctnr {
 

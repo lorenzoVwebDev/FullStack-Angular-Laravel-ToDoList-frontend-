@@ -75,6 +75,7 @@ export class HomeComponent implements AfterViewInit {
   isSignUpOk: WritableSignal<boolean> = signal<boolean>(false)
   duplicateUser: WritableSignal<boolean> = signal<boolean>(false)
   signedIn: WritableSignal<boolean> = signal<boolean>(false)
+  signUpRequested: WritableSignal<boolean> = signal<boolean>(false)
   usernameRegex: RegExp = /^(?!.*[<>\"'/`&])(?:[a-zA-Z0-9._-]{3,32}|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
   emailRegex: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   pwrRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
@@ -82,6 +83,13 @@ export class HomeComponent implements AfterViewInit {
   imgPath: String = `${environment.apiUrl}assets/lcp/home-lcp.png`
   //Platform
   platformId = inject(PLATFORM_ID);
+  signUpFormGroup = new FormGroup({
+    username: new FormControl<string>("lorenzo1006", [Validators.pattern(this.usernameRegex), Validators.required]),
+    email: new FormControl("lorenzo.viganego@libero.it", [Validators.pattern(this.emailRegex), Validators.required]),
+    password: new FormControl("Password$1", [Validators.pattern(this.pwrRegex), Validators.required]),
+    confirmPassword: new FormControl("Password$1", [Validators.pattern(this.pwrRegex), Validators.required]),
+    avatar: new FormControl<File | undefined>(undefined, validateFile)
+  })
 
   constructor(public jwtApi: JwtService, public authApi: AuthService, public router: Router, private matRegistry: MatIconRegistry, private domSanitaizer: DomSanitizer) {
     if (this.testData()?.["loggedInResolver"]) this.signedIn.set(true);
@@ -113,31 +121,26 @@ export class HomeComponent implements AfterViewInit {
     this.elementWidth.set(this.container?.nativeElement.clientWidth)
   }
 
-  signUpFormGroup = new FormGroup({
-    username: new FormControl<string>("", [Validators.pattern(this.usernameRegex), Validators.required]),
-    email: new FormControl("", [Validators.pattern(this.emailRegex), Validators.required]),
-    password: new FormControl("", [Validators.pattern(this.pwrRegex), Validators.required]),
-    confirmPassword: new FormControl("", [Validators.pattern(this.pwrRegex), Validators.required]),
-    avatar: new FormControl<File | undefined>(undefined, validateFile)
-  })
-
   signUp() {
+    this.signUpRequested.set(true)
     const username = this.signUpFormGroup.value.username
     const email = this.signUpFormGroup.value.email
     const password = this.signUpFormGroup.value.password
     const confirmPassword = this.signUpFormGroup.value.confirmPassword
     const avatar = this.file
-    if (!this.signUpFormGroup.valid) return
+    if (!this.signUpFormGroup.valid) return this.signUpRequested.set(false)
 
     if (password === confirmPassword) {
-    if (!username || !password || !email) return
+    if (!username || !password || !email) return this.signUpRequested.set(false)
       this.authApi.signUp(username, email, password, avatar ? avatar : undefined).subscribe(res => {
+        this.signUpRequested.set(false)
         this.isSignUpOk.set(true)
         setTimeout(() => {
-          this.router.navigate(["/signin"])
+          this.router.navigate(["/"])
           this.isSignUpOk.set(false)
-        }, 2000)
+        }, 5000)
       }, (err: HttpErrorResponse) => {
+        this.signUpRequested.set(false)
         switch (err.status) {
           case 401: {
             if (err.error.response === "missing-credentials") {
@@ -165,6 +168,6 @@ export class HomeComponent implements AfterViewInit {
           }
         }
       })
-    }
+    } else return this.signUpRequested.set(false)
   }
 }
